@@ -13,7 +13,7 @@ it(`matches expected files`, () => {
     module: {
       rules: [
         {
-          oneOf: createAllLoaders(env),
+          oneOf: createAllLoaders(env, ''),
         },
       ],
     },

@@ -79,7 +79,8 @@ export const styleLoaderRule: Rule = {
  * @category loaders
  */
 export default function createAllLoaders(
-  env: Pick<Environment, 'projectRoot' | 'locations' | 'mode' | 'config' | 'platform' | 'babel'>
+  env: Pick<Environment, 'projectRoot' | 'locations' | 'mode' | 'config' | 'platform' | 'babel'>,
+  publicPath: string
 ): Rule[] {
   env.projectRoot = env.projectRoot || getPossibleProjectRoot();
   // @ts-ignore
@@ -99,7 +100,7 @@ export default function createAllLoaders(
     getHtmlLoaderRule(template.folder),
     imageLoaderRule,
     getBabelLoaderRule(env),
-    createFontLoader(root, includeModule),
+    createFontLoader(root, includeModule, publicPath),
     styleLoaderRule,
     // This needs to be the last loader
     fallbackLoaderRule,

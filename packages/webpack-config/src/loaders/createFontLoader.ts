@@ -10,7 +10,8 @@ import { Rule } from 'webpack';
  */
 export default function createFontLoader(
   projectRoot: string,
-  includeModule: (...props: string[]) => string
+  includeModule: (...props: string[]) => string,
+  publicPath: string
 ): Rule {
   return {
     test: /\.(woff2?|eot|ttf|otf)$/,
@@ -21,7 +22,8 @@ export default function createFontLoader(
           // Interop assets like Metro bundler
           esModule: false,
           limit: 50000,
-          name: './fonts/[name].[ext]',
+          name: 'fonts/[name].[ext]',
+          publicPath
         },
       },
     ],

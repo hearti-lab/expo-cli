@@ -195,16 +195,11 @@ export function getPublicPaths(
    */
   publicUrl: string;
 } {
-  const parsedMode = getMode(env);
-  if (parsedMode === 'production') {
-    const publicPath = getServedPath(env.projectRoot);
-    return {
-      publicPath,
-      publicUrl: publicPath.slice(0, -1),
-    };
-  }
-
-  return { publicUrl: '', publicPath: '/' };
+  const publicPath = getServedPath(env.projectRoot);
+  return {
+    publicPath,
+    publicUrl: publicPath.slice(0, -1),
+  };
 }
 
 /**

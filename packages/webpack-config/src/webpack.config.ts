@@ -549,7 +549,7 @@ export default async function (
         // Disable require.ensure because it breaks tree shaking.
         { parser: { requireEnsure: false } },
         {
-          oneOf: createAllLoaders(env),
+          oneOf: createAllLoaders(env, publicPath),
         },
       ].filter(Boolean),
     },
